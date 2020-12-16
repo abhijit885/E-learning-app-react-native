@@ -98,13 +98,29 @@ export default class TrainingDetailsPostBookingPage extends Component {
               </View>
             </View>
           </View>
-          <View style={{ height: '95%', width: '95%', zIndex: 1000, flex: 1, flexWrap: 'wrap', elevation: 3, marginTop: -70, marginLeft: 10, marginRight: 10 }}>
-            <Card style={{ width: '100%', height: 500, marginRight: 2, marginBottom: 2, zIndex: 1000, flex: 2 }} >
+          <View style={{ marginTop: -70 }}>
+            <View style={{
+              borderWidth: 0,
+              borderRedius: 0,
+              borderColor: '#ddd',
+              borderBottomWidth: 0,
+              shadowColor: '#ff00b8',
+              shadowOffset: { width: 10, height: 20 },
+              shadowOpacity: 0.4,
+              shadowRadius: 2,
+              elevation: 7,
+              marginLeft: 25,
+              marginRight: 25,
+              margintop: 20,
+              marginBottom: 20,
+              padding: 10,
+              backgroundColor: "#faf9f9",
+            }} >
               <View style={{ flex: 1, flexDirection: 'column', flexWrap: 'wrap', width: '100%' }}>
                 <Image source={require('../../icon/banner1.png')} style={{ width: '100%', height: 130, marginTop: 5, }} />
                 <View style={{ flexDirection: 'row', }}>
 
-                  <Text style={{ fontSize: 13, paddingLeft: 4, paddingRight: 2, marginTop: 8, marginLeft: 6, fontWeight: 'bold' }}>{'\u20B9'}500</Text>
+                  <Text style={{ fontSize: 13, paddingLeft: 4, paddingRight: 2, marginTop: 8, marginLeft: 6, fontWeight: 'bold' }}>{'\u20B9'}505</Text>
                   <Text style={{ color: '#988f8f', textDecorationLine: 'line-through', marginLeft: 4, marginTop: 8, textDecorationStyle: 'solid', fontSize: 13, }}>
                     {'\u20B9'}6850
                         </Text>
@@ -120,12 +136,14 @@ export default class TrainingDetailsPostBookingPage extends Component {
                     <Text style={{ color: 'black', textAlign: 'center', fontSize: 11, marginTop: 2 }}>One to One</Text>
                   </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.props.navigation.navigate('TrainingDetails')}>
-                  <Text style={styles.loginText}>Book This Training</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={[styles.buttonContainer, styles.loginButton2]} >
-                  <Text style={styles.loginText2}>Add To Cart</Text>
-                </TouchableOpacity>
+                <View style={{ paddingLeft: 16 }}>
+                  <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.props.navigation.navigate('TrainingDetails')}>
+                    <Text style={styles.loginText}>Book This Training</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={[styles.buttonContainer, styles.loginButton2]} >
+                    <Text style={styles.loginText2}>Add To Cart</Text>
+                  </TouchableOpacity>
+                </View>
                 <Text style={{ width: '100%', alignItems: 'center', textAlign: 'center', fontSize: 11, paddingLeft: 4, paddingRight: 2, marginTop: 5, fontWeight: 'normal' }}>Money back gurantee on cancellation</Text>
                 <Text style={{ width: '100%', alignItems: 'center', textAlign: 'left', fontSize: 16, paddingLeft: 4, paddingRight: 2, marginLeft: 10, marginTop: 25, fontWeight: 'bold', fontFamily: 'roboto-bold' }}>Training Description:</Text>
                 <View style={{ flexDirection: 'column', marginLeft: 15, marginTop: 10 }}>
@@ -169,25 +187,43 @@ export default class TrainingDetailsPostBookingPage extends Component {
 
                 </View>
               </View>
-            </Card>
+            </View>
           </View>
 
-          <View style={{ height: '65%', width: '95%', zIndex: 1000, flex: 1, flexWrap: 'wrap', elevation: 3, marginTop: 20, marginLeft: 10, marginRight: 10 }}>
-            <Card style={{ width: '100%', height: 10, marginRight: 2, marginBottom: 2, zIndex: 1000, flex: 1 }} >
-              <View style={{ flexWrap: "wrap", flex: 1, flexDirection: 'column', marginRight: 5 }} numberOfLines={2}>
+          <View style={{ marginTop: 10 }}>
+            <View style={{
+              borderWidth: 0,
+              borderRedius: 0,
+              borderColor: '#ddd',
+              borderBottomWidth: 0,
+              shadowColor: '#ff00b8',
+              shadowOffset: { width: 10, height: 20 },
+              shadowOpacity: 0.4,
+              shadowRadius: 2,
+              elevation: 7,
+              marginLeft: 25,
+              marginRight: 25,
+              margintop: 20,
+              marginBottom: 20,
+              padding: 10,
+              //paddingRight: 10,
+
+              backgroundColor: "#faf9f9",
+            }} >
+              <View style={{ flexWrap: "wrap", flexDirection: 'column' }} numberOfLines={2}>
                 {this.state.topsearch.map((item, key) => (
                   <View key={key} style={{ flexWrap: "wrap", flexDirection: 'column' }}>
                     <TouchableOpacity style={styles.buttonContainerSub2}  >
 
                       <Text style={styles.loginText4}>{item.name}</Text>
-                      <Image source={require('../../icon/right-arrow-angle.png')} style={{ width: 15, height: 15, marginLeft: 6 }} />
+                      <Image source={require('../../icon/right-arrow-angle.png')} style={{paddingTop:10, width: 15, height: 15, }} />
 
                     </TouchableOpacity>
-                    <Text style={{ fontStyle: 'italic', marginTop: -10, fontWeight: 'bold', color: '#e9e9e9', width: '70%' }}>________________________________________________</Text>
+                    <Text style={{ fontStyle: 'italic', fontWeight: 'bold', color: '#e9e9e9', width: '70%', marginLeft: 20, }}>________________________________________________</Text>
                   </View>
                 ))}
               </View>
-            </Card>
+            </View>
           </View>
           <View style={{ flexDirection: 'column', width: '85%', marginLeft: 20, marginRight: 15, marginTop: 40 }}>
             <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 5, fontFamily: 'roboto-bold' }}>Question Answer</Text>
@@ -276,17 +312,19 @@ const styles = StyleSheet.create({
   },
   buttonContainerSub2: {
 
-    height: 30,
+   // height: 30,
     flexDirection: 'row',
+    marginLeft: 20,
+    marginTop: 15,
+    //marginRight:20,
 
+    //width: '100%',
+    //borderRadius: 30,
+    // padding: 5,
 
-    width: '100%',
-    borderRadius: 30,
-    padding: 5,
-
-    borderColor: 'white',
-    borderWidth: 1,
-    backgroundColor: 'white'
+    //borderColor: 'white',
+    //borderWidth: 1,
+    //backgroundColor: '#8f00ff'
   },
   inputIcon: {
     width: 12,
@@ -325,7 +363,8 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     width: 300,
     marginTop: 10,
-    borderRadius: 3
+    borderRadius: 3,
+    textAlign: 'center',
   },
   loginButton: {
     backgroundColor: "#d73c5e",
@@ -354,10 +393,10 @@ const styles = StyleSheet.create({
   },
   loginText4: {
     alignItems: 'center',
-    marginTop: -5,
+   // marginTop: 12,
     height: 30,
-    width: '90%',
-    color: '#3b3c37',
+    width: '88%',
+    backgroundColor: "#faf9f9",
     fontWeight: 'bold',
     fontFamily: 'roboto-bold'
   },

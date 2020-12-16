@@ -9,7 +9,10 @@ import {
   Image, ScrollView,
 } from 'react-native';
 
-import { Card } from "react-native-elements";
+//import { Card } from "react-native-elements";
+import Card from './Components/Card'
+import CardSection from './Components/CardSection'
+
 import { DatePicker, CheckBox } from 'native-base';
 
 export default class LoginPage extends Component {
@@ -90,18 +93,21 @@ export default class LoginPage extends Component {
             {/* <Text style={{fontStyle:'italic',marginBottom:12,}}>_____________________  OR  ____________________</Text> */}
 
             <Card >
-              <View style={[styles.buttonContainer2,]}>
+              <CardSection>
+
+                {/* <View style={[styles.buttonContainer2,]}> */}
                 <Image source={require('../../icon/facebook.png')} size={20} style={styles.inputIcon} />
                 <Text style={styles.loginTextFacebook}> Sign up with Facebook</Text>
-              </View>
+                {/* </View> */}
+              </CardSection>
 
             </Card>
 
             <Card >
-              <View style={[styles.buttonContainer2,]}>
+              <CardSection>
                 <Image source={require('../../icon/google.png')} size={20} style={styles.inputIcon} />
                 <Text style={styles.loginTextFacebook, { marginRight: 12, }}> Sign up with Google</Text>
-              </View>
+              </CardSection>
 
             </Card>
 
@@ -163,6 +169,8 @@ const styles = StyleSheet.create({
   loginTextFacebook: {
 
     textAlign: 'center',
+    //marginTop:5,
+    //paddingTop:5,
     fontFamily: 'roboto-regular',
   },
   buttonContainerFacebook: {

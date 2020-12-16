@@ -9,7 +9,9 @@ import {
     Image, ScrollView, SafeAreaView
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Card } from "react-native-elements";
+//import Card from "./Components/Card";
+import CustomCarasole from './Components/CustomCarasole'
+
 export default class InstructorProfilePage extends Component {
     static navigationOptions = ({ navigation, navigationOptions }) => {
         return {
@@ -100,20 +102,46 @@ export default class InstructorProfilePage extends Component {
 
                             </View>
                         </View>
-                    </View>
-                    <View style={{ height: '95%', width: '96%', zIndex: 1000, flex: 1, elevation: 3, marginTop: -70 }}>
-                        <Card style={{ width: 570, height: 500, marginRight: 2, marginBottom: 2, zIndex: 1000, flex: 2 }} >
-                            <View style={{ flex: 1, flexDirection: 'column' }}>
-                                <Text style={{ fontFamily: 'roboto-bold', color: '#3b3a36', fontSize: 17, paddingLeft: 10, width: 140 }}>About Me</Text>
-                                <Text style={{ fontFamily: 'roboto-regular', lineHeight: 20, color: '#40413c', marginTop: 5, fontSize: 13, paddingLeft: 10, }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</Text>
-                                <Text style={{ fontFamily: 'roboto-bold', color: '#661eb5', fontSize: 14, paddingLeft: 10, marginBottom: 10, marginTop: 5 }}>read more+</Text>
+                    </View >
+                    <View  style={{marginTop:-70 }}>
+                    {/* style={{ height: '95%', width: '95%', zIndex: 1000, flex: 1, flexWrap: 'wrap', elevation: 10, marginTop: -70, marginLeft: 10, marginRight: 10,}} */}
+                        <View style={{
+                            borderWidth: 0,
+                            borderRedius: 0,
+                            borderColor: '#ddd',
+                            borderBottomWidth: 0,
+                            shadowColor: '#ff00b8',
+                            shadowOffset: { width: 10, height: 20 },
+                            shadowOpacity: 0.4,
+                            shadowRadius: 2,
+                            elevation: 7,
+                            marginLeft: 25,
+                            marginRight: 25,
+                            margintop: 20,
+                            marginBottom: 20,
+                            backgroundColor:"#faf9f9",
+                        }} >
+                            <View style={{ flexDirection: 'column' }}>
+                                <Text style={{ fontFamily: 'roboto-bold', color: '#3b3a36', fontSize: 17, paddingLeft: 20, paddingTop: 30, width: 140 }}>About Me</Text>
+                                <Text style={{ fontFamily: 'roboto-regular', lineHeight: 20, color: '#40413c',  fontSize: 13, padding: 25, textAlign: 'justify' }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</Text>
+                                <Text style={{ fontFamily: 'roboto-bold', color: '#661eb5', fontSize: 14, paddingLeft: 20, marginBottom: 35, }}>read more+</Text>
                             </View>
-                        </Card>
+                        </View>
                     </View>
 
-                    <View style={{ flexDirection: 'column', width: '95%', marginLeft: 10, marginRight: 10, marginTop: 20 }}>
-                        <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 8, fontFamily: 'roboto-bold' }}>Upcoming Training Offered By Rabin Chatterjee</Text>
+                    <View style={{ flexDirection: 'column', width: '95%', marginLeft: 16, marginRight: 10, marginTop: 20 }}>
+                        <Text style={{ fontWeight: 'bold', fontSize: 22, marginLeft: 8, fontFamily: 'roboto-bold' }}>Upcoming Training Offered By Rabin Chatterjee</Text>
                         <Image source={require('../../icon/color-border.png')} style={{ width: '45%', height: 4, marginTop: 5, }} />
+                        <Text style={{  fontSize: 11, marginTop: 20,marginHorizontal:18, fontFamily: 'roboto-regular' }}>Lorem ipsum dolor sit amet consectetur adip text scing elit sed do eiusmod tempor labore</Text>
+                    </View>
+                    
+                    <View style={{ marginTop: 20 }}>
+                        <CustomCarasole />
+                        {/* <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 8, fontFamily: 'roboto-bold' }}>Upcoming Training Offered By Rabin Chatterjee Training Offered By Rabin Chatterjee</Text>
+                       <View style={{ flexDirection: 'row', marginTop: 5, marginBottom: 5 }}>
+                    <Image source={require('../../icon/calendar-min.png')} style={{ width: 18, height: 18, marginRight: 25 }} />
+                    <Text style={styles.loginText3}>10 Total Sessions</Text>
+                  </View> */}
                     </View>
                     <View style={{ flexDirection: 'column', marginBottom: 20, width: '95%', marginLeft: 10, marginRight: 10, marginTop: 20 }}>
                         <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 8, fontFamily: 'roboto-bold' }}>Reviews</Text>
