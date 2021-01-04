@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,7 +14,7 @@ import {
   View, Image,
   Text,
   StatusBar,
-  TextInput,
+  TextInput,Alert
 } from 'react-native';
 
 import {
@@ -26,330 +26,140 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer, StackActions, NavigationActions } from 'react-navigation';
-import { createDrawerNavigator } from 'react-navigation-drawer';
-import SplashScreen from 'react-native-splash-screen';
-import SplashStep from './Screen/SplashStep1';
-import Login from './Screen/Login';
-import Register from './Screen/Registration';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Home from './Screen/Home';
-import CourseDetails from './Screen/CourseDetails';
-import TrainingDetailsPostBooking from './Screen/TrainingDetailsPostBooking';
-import InstructorProfile from './Screen/InstructorProfile';
-import Search from './Screen/Search';
-import Searchresult from './Screen/Searchresult';
-import TrainingDetails from './Screen/TrainingDetails';
+// import { createDrawerNavigator } from 'react-navigation-drawer';
 
-const DashboardStackNavigator = createStackNavigator(
-  {
-    DashboardNavigator: Home,
+// import SplashScreen from 'react-native-splash-screen';
+// import SplashStep from './Screen/SplashStep1';
+// import Login from './Screen/Login';
+// import Register from './Screen/Registration';
 
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => {
+// import Home from './Screen/Home';
+// import CourseDetails from './Screen/CourseDetails';
+// import TrainingDetailsPostBooking from './Screen/TrainingDetailsPostBooking';
+// import InstructorProfile from './Screen/InstructorProfile';
+// import Search from './Screen/Search';
+// import Searchresult from './Screen/Searchresult';
+// import TrainingDetails from './Screen/TrainingDetails';
+import { AuthContext } from '../Context/context'
+import ManagerDrawerNavigator from './Screen/Components/ManagerDrawerNavigator'
+import ManagerDrawerNavigator_without_login from './Screen/Components/ManagerDrawerNavigator_without_login'
+import { ActivityIndicator } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+const App = () => {
+  //      HOOKS STATE
+  // const[isLoding, setIsLoding] = React.useState(true);
+  // const[useToken, setUseToken] = React.useState(true);
 
-      return {
-        headerLeft: (
-          <View style={{ justifyContent: 'center', height: 35 }}>
-            <Image source={require('./../icon/menu-icon.png')} style={styles.image} />
-          </View>
-        ),
-        headerRight: (
-          <View style={{ justifyContent: 'center', height: 35, right: 20 }} onStartShouldSetResponder={
-            () => navigation.navigate('Search')
-          }>
-            <Image source={require('./../icon/search-icon.png')} style={styles.image} />
-          </View>
-        ),
-      };
+  //      REDUCER   initial STATE
+  const initialLoginState = {
+    isLoading: true,
+    userName: null,
+    userToken: null,
+  };
+
+  const loginReducer = (prevState, action) => {
+    switch( action.type ) {
+      case 'RETRIEVE_TOKEN': 
+        return {
+          ...prevState,
+          userToken: action.token,
+          isLoading: false,
+        };
+      case 'LOGIN': 
+        return {
+          ...prevState,
+          userName: action.id,
+          userToken: action.token,
+          isLoading: false,
+        };
+      case 'LOGOUT': 
+        return {
+          ...prevState,
+          userName: null,
+          userToken: null,
+          isLoading: false,
+        };
+      case 'REGISTER': 
+        return {
+          ...prevState,
+          userName: action.id,
+          userToken: action.token,
+          isLoading: false,
+        };
     }
-  }  ,
-);
-const DashboardStackNavigato2r = createStackNavigator(
-  {
-    DashboardNavigator2: InstructorProfile,
+  };
+  //      CREAT REDUCER
+  const [loginState, dispatch] = React.useReducer(loginReducer, initialLoginState);
 
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => {
-
-      return {
-        headerLeft: (
-          <View style={{ justifyContent: 'center', height: 35 }}>
-            <Image source={require('./../icon/menu-icon.png')} style={styles.image} />
-          </View>
-        ),
-        headerRight: (
-          <View style={{ justifyContent: 'center', height: 35, right: 20 }} onStartShouldSetResponder={
-            () => navigation.navigate('Search')
-          }>
-            <Image source={require('./../icon/search-icon.png')} style={styles.image} />
-          </View>
-        ),
-      };
+//    UPDATE CURRENT STATETHROUGH REDUCER
+const authContext = React.useMemo(() => ({
+  signIn: async(foundUser) => {
+    // setUserToken('fgkj');
+    // setIsLoading(false);
+    const userToken = String(foundUser[0].userToken);
+    const userName = foundUser[0].username;
+    
+    try {
+      await AsyncStorage.setItem('userToken', userToken);
+    } catch(e) {
+      console.log(e);
     }
-  }  ,
-);
-
-const DashboardStackNavigator2 = createStackNavigator(
-  {
-    DashboardNavigator3: TrainingDetailsPostBooking,
-
+    // console.log('user token: ', userToken);
+    dispatch({ type: 'LOGIN', id: userName, token: userToken });
   },
-  {
-    defaultNavigationOptions: ({ navigation }) => {
-
-      return {
-        headerLeft: (
-          <View style={{ justifyContent: 'center', height: 35 }}>
-            <Image source={require('./../icon/menu-icon.png')} style={styles.image} />
-          </View>
-        ),
-        headerRight: (
-          <View style={{ justifyContent: 'center', height: 35, right: 20 }} onStartShouldSetResponder={
-            () => navigation.navigate('Search')
-          }>
-            <Image source={require('./../icon/search-icon.png')} style={styles.image} />
-          </View>
-        ),
-      };
+  signOut: async() => {
+    // setUserToken(null);
+    // setIsLoading(false);
+    try {
+      await AsyncStorage.removeItem('userToken');
+    } catch(e) {
+      console.log(e);
     }
-  }  ,
-);
-
-const DashboardStackNavigator3 = createStackNavigator(
-  {
-    DashboardNavigator4: TrainingDetails,
-
+    dispatch({ type: 'LOGOUT' });
   },
-  {
-    defaultNavigationOptions: ({ navigation }) => {
-
-      return {
-        headerLeft: (
-          <View style={{ justifyContent: 'center', height: 35 }}>
-            <Image source={require('./../icon/menu-icon.png')} style={styles.image} />
-          </View>
-        ),
-        headerRight: (
-          <View style={{ justifyContent: 'center', height: 35, right: 20 }} onStartShouldSetResponder={
-            () => navigation.navigate('Search')
-          }>
-            <Image source={require('./../icon/search-icon.png')} style={styles.image} />
-          </View>
-        ),
-      };
-    }
-  }  ,
-);
-
-const SideMenu = createDrawerNavigator(
-  {
-    Home: DashboardStackNavigator,
-    //  'Log out': Logout,
-  },
-);
-SideMenu.navigationOptions = {
-  headerShown: false,
-};
-const SideMenu2 = createDrawerNavigator(
-  {
-    InstructorProfile: DashboardStackNavigato2r,
-    //  'Log out': Logout,
-  },
-);
-SideMenu2.navigationOptions = {
-  headerShown: false,
-};
-const SideMenu3 = createDrawerNavigator(
-  {
-    TrainingDetailsPostBooking: DashboardStackNavigator2,
-    //  'Log out': Logout,
-  },
-);
-SideMenu3.navigationOptions = {
-  headerShown: false,
-};
-const SideMenu4 = createDrawerNavigator(
-  {
-    TrainingDetails: DashboardStackNavigator3,
-    //  'Log out': Logout,
-  },
-);
-SideMenu4.navigationOptions = {
-  headerShown: false,
-};
-const AppNavigator = createStackNavigator({
-  SplashStep: {
-    screen: SplashStep,
-    navigationOptions: {
-      header: null //this will hide the header
-    },
-  },
-  Login: {
-    screen: Login,
-    navigationOptions: {
-      header: null
-    },
-  },
-  Register: {
-    screen: Register,
-    navigationOptions: {
-      header: null
-    }
-  },
-  Home: SideMenu,
-  CourseDetails: {
-    screen: CourseDetails,
-    navigationOptions: {
-      title: '',
-      headerRight: (
-        <View style={{
-          borderColor: '#bab9b3',
-          backgroundColor: '#f4efe9',
-          borderRadius: 5,
-          borderBottomWidth: 1,
-          borderWidth: 1,
-          width: 320,
-          marginRight: 15,
-          height: 40,
-          //marginLeft:15,
-          flexDirection: 'row',
-          alignItems: 'center',
-
-        }}>
-
-          <TextInput style={{
-            height: 55,
-            width: '100%',
-            marginLeft: 0,
-            paddingLeft: 10,
-            borderBottomColor: '#FFFFFF',
-            flex: 1,
-          }}
-            placeholder="Search"
-
-            underlineColorAndroid='transparent'
-          />
-          <Icon name='md-search' size={20} style={{
-            width: 30,
-            height: 30,
-            marginLeft: 15,
-            justifyContent: 'center',
-            marginTop: 6
-          }} />
-        </View>
-      ),
-    }
-  },
-  TrainingDetailsPostBooking: SideMenu3,
-  TrainingDetails: SideMenu4,
-  InstructorProfile: SideMenu2,
-  Search: {
-    screen: Search,
-    navigationOptions: {
-      title: '',
-      headerRight: (
-        <View style={{
-          borderColor: '#bab9b3',
-          backgroundColor: '#f4efe9',
-          borderRadius: 5,
-          borderBottomWidth: 1,
-          borderWidth: 1,
-          width: 320,
-          marginRight: 15,
-          height: 40,
-          //marginLeft:15,
-          flexDirection: 'row',
-          alignItems: 'center',
-
-        }}>
-
-          <TextInput style={{
-            height: 55,
-            width: '100%',
-            marginLeft: 0,
-            paddingLeft: 10,
-            borderBottomColor: '#FFFFFF',
-            flex: 1,
-          }}
-            placeholder="Search"
-
-            underlineColorAndroid='transparent'
-          />
-          <Icon name='md-search' size={20} style={{
-            width: 30,
-            height: 30,
-            marginLeft: 15,
-            justifyContent: 'center',
-            marginTop: 6
-          }} />
-        </View>
-      ),
-    }
-  },
-  Searchresult: {
-    screen: Searchresult,
-    navigationOptions: {
-      title: '',
-      headerRight: (
-        <View style={{
-          borderColor: '#bab9b3',
-          backgroundColor: '#f4efe9',
-          borderRadius: 5,
-          borderBottomWidth: 1,
-          borderWidth: 1,
-          width: 320,
-          marginRight: 15,
-          height: 40,
-          //marginLeft:15,
-          flexDirection: 'row',
-          alignItems: 'center',
-
-        }}>
-
-          <TextInput style={{
-            height: 55,
-            width: '100%',
-            marginLeft: 0,
-            paddingLeft: 10,
-            borderBottomColor: '#FFFFFF',
-            flex: 1,
-          }}
-            placeholder="Photoshop"
-
-            underlineColorAndroid='transparent'
-          />
-          <Icon name='md-search' size={20} style={{
-            width: 30,
-            height: 30,
-            marginLeft: 15,
-            justifyContent: 'center',
-            marginTop: 6
-          }} />
-        </View>
-      ),
-    }
-  },
-})
-
-const AppContainer = createAppContainer(AppNavigator);
-
-
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-
+  signUp: () => {
+    // setUserToken('fgkj');
+    // setIsLoading(false);
   }
-  componentDidMount() {
-    SplashScreen.hide();
+}), []);
 
-  }
-  render() {
+useEffect(() => {
+  setTimeout(async() => {
+    // setIsLoading(false);
+    let userToken;
+    userToken = null;
+    try {
+      userToken = await AsyncStorage.getItem('userToken');
+    } catch(e) {
+      console.log(e);
+    }
+    // console.log('user token: ', userToken);
+    dispatch({ type: 'RETRIEVE_TOKEN', token: userToken });
+  }, 1000);
+}, []);
 
-    return <AppContainer />;
-  }
+if( loginState.isLoading ) {
+  return(
+    <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+      <ActivityIndicator size="large"/>
+    </View>
+  );
 }
+    return(
+      <AuthContext.Provider value={authContext}>
+        { loginState.userToken !== null ? 
+        <ManagerDrawerNavigator/> 
+
+
+        :
+        <ManagerDrawerNavigator_without_login/>
+
+      }
+      </AuthContext.Provider>
+    )
+}
+export default App;
 
 const styles = StyleSheet.create({
 

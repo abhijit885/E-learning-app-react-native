@@ -10,54 +10,83 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default class CourseDetailsPage extends Component {
-    static navigationOptions = ({ navigation, navigationOptions }) => {
+    const CourseDetailsPage = ({ navigation }) => {
 
-        return {
+        // const [images, setImages] = React.useState([
+        // require('../../icon/banner1.png'),
+        // require('../../icon/banner2.png'),
+        // require('../../icon/banner3.png'),
+        // ])
+        //     const [traing, setTraing] = React.useState([
+        //         require('../../icon/featured-training-img.png'),
+        //         require('../../icon/featured-training-img2.png'),
+        //         require('../../icon/featured-training-img3.png'),
+        //     ])
+        //         const [instructorImage, setInstructorImage] = React.useState([
+        //             require('../../icon/instructor1.png'),
+        //             require('../../icon/instructor2.png'),
+        //             require('../../icon/instructor3.png'),
+        //         ])
 
+                const [topsearch, setTopsearch] = React.useState([
+                    { id: 0, name: 'Java' }, { id: 1, name: 'Html' }, { id: 2, name: 'Sql' }, { id: 3, name: 'Wordpress' }, { id: 4, name: 'Php' },
+                    { id: 5, name: 'React' }, { id: 6, name: 'Meditation' },
+                ])
 
+                const [subcategory, setSubcategory] = React.useState([
+                    { id: 0, name: 'Fitness', img: require('../../icon/barbell-min.png') }, { id: 1, name: 'Dieting', img: require('../../icon/diet-min.png') },
+                    { id: 2, name: 'Genaral', img: require('../../icon/barbell-min.png') }, { id: 3, name: 'Yoga', img: require('../../icon/lotus-position-min.png') },
+                    { id: 4, name: 'First Aid', img: require('../../icon/first-aid-kit-min.png') },
+                    { id: 5, name: 'Nutration', img: require('../../icon/apple-min.png') },
+                ])
 
-        }
-    }
+    // static navigationOptions = ({ navigation, navigationOptions }) => {
 
-    constructor(props) {
-        super(props);
-        global.Currentstate = this.props.navigation.state.routeName;
-        this.state = {
-            email: '',
-            password: '',
-            images: [
-                require('../../icon/banner1.png'),
-                require('../../icon/banner2.png'),
-                require('../../icon/banner3.png'),
-            ],
-            traing: [
-                require('../../icon/featured-training-img.png'),
-                require('../../icon/featured-training-img2.png'),
-                require('../../icon/featured-training-img3.png'),
-            ],
-            instructorImage: [
-                require('../../icon/instructor1.png'),
-                require('../../icon/instructor2.png'),
-                require('../../icon/instructor3.png'),
-            ],
-            topsearch: [
-                { id: 0, name: 'Java' }, { id: 1, name: 'Html' }, { id: 2, name: 'Sql' }, { id: 3, name: 'Wordpress' }, { id: 4, name: 'Php' },
-                { id: 5, name: 'React' }, { id: 6, name: 'Meditation' },
-            ],
-            subcategory: [
-                { id: 0, name: 'Fitness', img: require('../../icon/barbell-min.png') }, { id: 1, name: 'Dieting', img: require('../../icon/diet-min.png') },
-                { id: 2, name: 'Genaral', img: require('../../icon/barbell-min.png') }, { id: 3, name: 'Yoga', img: require('../../icon/lotus-position-min.png') },
-                { id: 4, name: 'First Aid', img: require('../../icon/first-aid-kit-min.png') },
-                { id: 5, name: 'Nutration', img: require('../../icon/apple-min.png') },
-            ]
-        }
+    //     return {
 
 
-    }
+
+    //     }
+    // }
+
+    // constructor(props) {
+    //     super(props);
+    //    // global.Currentstate = this.props.navigation.state.routeName;
+    //     this.state = {
+    //         email: '',
+    //         password: '',
+    //         images: [
+    //             require('../../icon/banner1.png'),
+    //             require('../../icon/banner2.png'),
+    //             require('../../icon/banner3.png'),
+    //         ],
+    //         traing: [
+    //             require('../../icon/featured-training-img.png'),
+    //             require('../../icon/featured-training-img2.png'),
+    //             require('../../icon/featured-training-img3.png'),
+    //         ],
+    //         instructorImage: [
+    //             require('../../icon/instructor1.png'),
+    //             require('../../icon/instructor2.png'),
+    //             require('../../icon/instructor3.png'),
+    //         ],
+    //         topsearch: [
+    //             { id: 0, name: 'Java' }, { id: 1, name: 'Html' }, { id: 2, name: 'Sql' }, { id: 3, name: 'Wordpress' }, { id: 4, name: 'Php' },
+    //             { id: 5, name: 'React' }, { id: 6, name: 'Meditation' },
+    //         ],
+    //         subcategory: [
+    //             { id: 0, name: 'Fitness', img: require('../../icon/barbell-min.png') }, { id: 1, name: 'Dieting', img: require('../../icon/diet-min.png') },
+    //             { id: 2, name: 'Genaral', img: require('../../icon/barbell-min.png') }, { id: 3, name: 'Yoga', img: require('../../icon/lotus-position-min.png') },
+    //             { id: 4, name: 'First Aid', img: require('../../icon/first-aid-kit-min.png') },
+    //             { id: 5, name: 'Nutration', img: require('../../icon/apple-min.png') },
+    //         ]
+    //     }
 
 
-    render() {
+    // }
+
+
+    
         return (
             <View style={styles.container}>
                 <ScrollView>
@@ -69,7 +98,7 @@ export default class CourseDetailsPage extends Component {
 
                     </View>
                     <View style={{ flexWrap: "wrap", flex: 1, flexDirection: 'row', marginTop: 20, marginLeft: 10, marginRight: 5 }} numberOfLines={2}>
-                        {this.state.topsearch.map((item, key) => (
+                        {topsearch.map((item, key) => (
 
                             <TouchableOpacity style={styles.buttonContainer} key={key} >
                                 <Text style={styles.loginText}>{item.name}</Text>
@@ -85,9 +114,11 @@ export default class CourseDetailsPage extends Component {
 
                     </View>
                     <View style={{ flexWrap: "wrap", flex: 1, flexDirection: 'column', marginTop: 20, marginLeft: 10, marginRight: 5 }} numberOfLines={2}>
-                        {this.state.subcategory.map((item, key) => (
+                        {subcategory.map((item, key) => (
                             <View key={key} style={{ flexWrap: "wrap", flexDirection: 'column', alignItems: 'center' }}>
-                                <TouchableOpacity style={styles.buttonContainerSub} onPress={() => this.props.navigation.navigate('Searchresult')} >
+                                <TouchableOpacity style={styles.buttonContainerSub} 
+                                // onPress={() =>navigation.navigate('Searchresult')}
+                                 >
                                     <Image source={item.img} size={10} style={styles.inputIcon} />
                                     <Text style={styles.loginText2}>{item.name}</Text>
                                     <Image source={require('../../icon/right-arrow-angle.png')} style={{ width: 15, height: 15, marginLeft: 6 }} />
@@ -99,10 +130,9 @@ export default class CourseDetailsPage extends Component {
                     </View>
                 </ScrollView>
             </View>
-        )
-    }
-
-}
+        );
+    };
+export default CourseDetailsPage;
 
 const styles = StyleSheet.create({
     container: {

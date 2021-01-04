@@ -11,65 +11,72 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 //import Card from "./Components/Card";
 import CustomCarasole from './Components/CustomCarasole'
+import ProgressBarSteps from './Components/ProgressBarSteps'
+import CreatInstructorProfileAccount from '../Screen/CreatInstructorProfileAccount'
+import Screencreateprofilebasicgetcertified from '../Screen/Components/Screencreateprofilebasicgetcertified' 
+import ScreenCreateprofilebasicinformation from '../Screen/Components/ScreenCreateprofilebasicinformation'
+import ScreenCreatProfileSubjectSkill from '../Screen/Components/ScreenCreatProfileSubjectSkill'
+//import AcordiamItems from './Components/AcordiamItems'
+ const InstructorProfilePage = ({ navigation }) => {
+    const [subcategory, setSubcategory] = React.useState([
+        { id: 0, name: 'Total Student', data: '1,456', img: require('../../icon/group-min.png') },
+                    { id: 1, name: 'Experience', data: '10 Years', img: require('../../icon/reading-book-min.png') },
+                    { id: 2, name: 'Taught', data: '40 Hours', img: require('../../icon/clock-min.png') },
+                    { id: 3, name: 'Past Traning', data: '18', img: require('../../icon/calendar-min.png') },
+                    { id: 4, name: 'Active Traning', data: '10', img: require('../../icon/first-aid-kit-min.png') },
+    ])
+    // static navigationOptions = ({ navigation, navigationOptions }) => {
+    //     return {
+    //         title: (<View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+    //             <Image style={{ height: 70, width: 100 }} resizeMode="contain" source={require('../../icon/logo.png')} /></View>),
+    //         headerMode: 'none',
+    //         headerTitleStyle: {
+    //             color: '#5e5f61',
+    //             fontSize: 16,
+    //         },
+    //         headerStyle: {
+    //             // backgroundColor: '#141f47',//'#04adb3',
+    //             height: 50,
+    //         },
+    //         headerTitleAlign: 'center',
+    //     }
+    // }
+    // constructor(props) {
+    //     super(props);
+    //    // global.Currentstate = this.props.navigation.state.routeName;
+    //     this.state = {
+    //         subcategory: [
+    //             { id: 0, name: 'Total Student', data: '1,456', img: require('../../icon/group-min.png') },
+    //             { id: 1, name: 'Experience', data: '10 Years', img: require('../../icon/reading-book-min.png') },
+    //             { id: 2, name: 'Taught', data: '40 Hours', img: require('../../icon/clock-min.png') },
+    //             { id: 3, name: 'Past Traning', data: '18', img: require('../../icon/calendar-min.png') },
+    //             { id: 4, name: 'Active Traning', data: '10', img: require('../../icon/first-aid-kit-min.png') },
+    //         ]
+    //     }
+    // }
 
-export default class InstructorProfilePage extends Component {
-    static navigationOptions = ({ navigation, navigationOptions }) => {
-        return {
-            title: (<View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-                <Image style={{ height: 70, width: 100 }} resizeMode="contain" source={require('../../icon/logo.png')} /></View>),
-            headerMode: 'none',
-            headerTitleStyle: {
-                color: '#5e5f61',
-                fontSize: 16,
-            },
-            headerStyle: {
-                // backgroundColor: '#141f47',//'#04adb3',
-                height: 50,
-            },
-            headerTitleAlign: 'center',
-
-        }
-    }
-
-    constructor(props) {
-        super(props);
-        global.Currentstate = this.props.navigation.state.routeName;
-        this.state = {
-            subcategory: [
-                { id: 0, name: 'Total Student', data: '1,456', img: require('../../icon/group-min.png') },
-                { id: 1, name: 'Experience', data: '10 Years', img: require('../../icon/reading-book-min.png') },
-                { id: 2, name: 'Taught', data: '40 Hours', img: require('../../icon/clock-min.png') },
-                { id: 3, name: 'Past Traning', data: '18', img: require('../../icon/calendar-min.png') },
-                { id: 4, name: 'Active Traning', data: '10', img: require('../../icon/first-aid-kit-min.png') },
-
-            ]
-        }
-
-
-    }
-
-
-    render() {
         return (
-
             <View style={styles.container}>
-
                 <ScrollView>
-
+                    {/* <AcordiamItems/> */}
+                    {/* <ProgressBarSteps part2></ProgressBarSteps> */}
+                    {/* <CreatInstructorProfileAccount/> */}
+                    {/* <Screencreateprofilebasicgetcertified part3></Screencreateprofilebasicgetcertified> */}
+                    {/* <ScreenCreateprofilebasicinformation part1></ScreenCreateprofilebasicinformation> */}
+                    {/* <ScreenCreatProfileSubjectSkill part2></ScreenCreatProfileSubjectSkill> */}
                     <View style={{ height: 370, backgroundColor: '#f4efe9', position: 'relative', }}>
                         <View style={{ height: 250, margin: 14, }}>
                             <View style={{ flexDirection: 'row' }}>
                                 <Image source={require('../../icon/instructor1.png')} style={{ width: 115, height: 115, borderColor: '#f4efe900', borderWidth: 1, borderRadius: 10 }} />
                                 <View style={{ flexDirection: 'column', marginLeft: 15, }}>
                                     <Text style={{ color: '#3c3b37', fontWeight: 'bold', fontSize: 17 }}>
-                                        Ranbir Chatterjee
+                                        Ranbir Chatterjee Chatterjee
                                     </Text>
                                     <View style={{ marginTop: 10, flexDirection: 'row', alignItems: 'center' }} >
                                         <View style={{ backgroundColor: '#e6a000', paddingRight: 5, paddingTop: 3, paddingBottom: 3, borderRadius: 2, flexDirection: 'row', alignItems: 'center' }} >
                                             <Icon name='md-star' size={9} style={{ marginLeft: 4, color: 'white', marginRight: 5 }} />
                                             <Text style={{ color: 'white', fontSize: 9 }}>5.0</Text>
                                         </View>
-
                                         <Text style={{ fontFamily: 'roboto-regular', fontSize: 11, paddingLeft: 10, width: 140 }}>Rating(4,500)</Text>
                                     </View>
                                     <Text style={{ marginTop: 8, fontSize: 13, fontFamily: 'roboto-regular', height: 40, width: '95%', }} >Professional Web Developer and Instructor</Text>
@@ -77,7 +84,7 @@ export default class InstructorProfilePage extends Component {
                                 </View>
                             </View>
                             <View style={{ flexWrap: "wrap", flex: 1, flexDirection: 'row', marginTop: 10, }} numberOfLines={2}>
-                                {this.state.subcategory.map((item, key) => (
+                                {subcategory.map((item, key) => (
                                     <TouchableOpacity style={styles.buttonContainerSub} key={key} >
                                         <Image source={item.img} size={5} style={styles.inputIcon} />
                                         <Text style={styles.loginText}>{item.name}:{item.data}</Text>
@@ -99,13 +106,26 @@ export default class InstructorProfilePage extends Component {
                             </View>
                             <View>
                                 {/* <View style={styles.circle} /> */}
-
                             </View>
                         </View>
                     </View >
-                    <View  style={{marginTop:-70 }}>
-                    {/* style={{ height: '95%', width: '95%', zIndex: 1000, flex: 1, flexWrap: 'wrap', elevation: 10, marginTop: -70, marginLeft: 10, marginRight: 10,}} */}
+                    {/* <View style={{ marginTop: -70 }}> */}
+                        {/* style={{ height: '95%', width: '95%', zIndex: 1000, flex: 1, flexWrap: 'wrap', elevation: 10, marginTop: -70, marginLeft: 10, marginRight: 10,}} */}
                         <View style={{
+                            //     borderWidth: 0,
+                            //     borderRedius: 0,
+                            //     borderColor: '#ddd',
+                            //     borderBottomWidth: 0,
+                            //     shadowColor: '#ff00b8',
+                            //     shadowOffset: { width: 10, height: 20 },
+                            //     shadowOpacity: 0.4,
+                            //     shadowRadius: 2,
+                            //     elevation: 7,
+                            //     marginHorizontal: 20,
+                            //     //marginRight: 25,
+                            //    // margintop: 25,
+                            //     marginBottom: 20,
+                            //     backgroundColor:"#faf9f9",
                             borderWidth: 0,
                             borderRedius: 0,
                             borderColor: '#ddd',
@@ -115,26 +135,29 @@ export default class InstructorProfilePage extends Component {
                             shadowOpacity: 0.4,
                             shadowRadius: 2,
                             elevation: 7,
-                            marginLeft: 25,
-                            marginRight: 25,
-                            margintop: 20,
+                             marginLeft: 20,
+                             marginRight: 25,
+                           // marginHorizontal:5,
+                            marginTop: -70,
                             marginBottom: 20,
-                            backgroundColor:"#faf9f9",
+                            //padding: 10,
+                            //paddingRight: 10,
+                            backgroundColor: "#faf9f9",
                         }} >
                             <View style={{ flexDirection: 'column' }}>
                                 <Text style={{ fontFamily: 'roboto-bold', color: '#3b3a36', fontSize: 17, paddingLeft: 20, paddingTop: 30, width: 140 }}>About Me</Text>
-                                <Text style={{ fontFamily: 'roboto-regular', lineHeight: 20, color: '#40413c',  fontSize: 13, padding: 25, textAlign: 'justify' }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</Text>
+                                <Text style={{ fontFamily: 'roboto-regular', lineHeight: 20, color: '#40413c', fontSize: 13, padding: 25, textAlign: 'justify' }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</Text>
                                 <Text style={{ fontFamily: 'roboto-bold', color: '#661eb5', fontSize: 14, paddingLeft: 20, marginBottom: 35, }}>read more+</Text>
                             </View>
                         </View>
-                    </View>
-
+                        {/* sample */}
+                        {/* sample */}
+                    {/* </View> */}
                     <View style={{ flexDirection: 'column', width: '95%', marginLeft: 16, marginRight: 10, marginTop: 20 }}>
                         <Text style={{ fontWeight: 'bold', fontSize: 22, marginLeft: 8, fontFamily: 'roboto-bold' }}>Upcoming Training Offered By Rabin Chatterjee</Text>
                         <Image source={require('../../icon/color-border.png')} style={{ width: '45%', height: 4, marginTop: 5, }} />
-                        <Text style={{  fontSize: 11, marginTop: 20,marginHorizontal:18, fontFamily: 'roboto-regular' }}>Lorem ipsum dolor sit amet consectetur adip text scing elit sed do eiusmod tempor labore</Text>
+                        <Text style={{ fontSize: 11, marginTop: 20, marginHorizontal: 18, fontFamily: 'roboto-regular' }}>Lorem ipsum dolor sit amet consectetur adip text scing elit sed do eiusmod tempor labore</Text>
                     </View>
-                    
                     <View style={{ marginTop: 20 }}>
                         <CustomCarasole />
                         {/* <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 8, fontFamily: 'roboto-bold' }}>Upcoming Training Offered By Rabin Chatterjee Training Offered By Rabin Chatterjee</Text>
@@ -148,12 +171,10 @@ export default class InstructorProfilePage extends Component {
                         <Image source={require('../../icon/color-border.png')} style={{ width: '20%', height: 8, marginTop: 5, marginLeft: 5 }} />
                     </View>
                 </ScrollView>
-
             </View>
-        )
-
-    }
-}
+        );
+    };
+export default InstructorProfilePage;
 
 const styles = StyleSheet.create({
     container: {
@@ -162,7 +183,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         alignContent: 'center'
-
     },
     buttonContainerSub: {
 

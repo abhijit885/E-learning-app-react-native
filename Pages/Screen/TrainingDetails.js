@@ -32,7 +32,7 @@ export default class TrainingDetailsPage extends Component {
 
     constructor(props) {
         super(props);
-        global.Currentstate = this.props.navigation.state.routeName;
+       // global.Currentstate = this.props.navigation.state.routeName;
         this.state = {
             subcategory: [
                 { id: 0, name: 'Rabin Manna', data: '1,456', img: require('../../icon/instructor2.png') },
@@ -123,9 +123,9 @@ export default class TrainingDetailsPage extends Component {
                                 <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]}>
                                     <Text style={styles.loginText}>Book This Training</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={[styles.buttonContainer, styles.loginButton2]} >
+                                {/* <TouchableOpacity style={[styles.buttonContainer, styles.loginButton2]} >
                                     <Text style={styles.loginText2}>Add To Cart</Text>
-                                </TouchableOpacity>
+                                </TouchableOpacity> */}
                                 <Text style={{ width: '100%', alignItems: 'center', textAlign: 'center', fontSize: 11, paddingLeft: 4, paddingRight: 2, marginTop: 5, fontWeight: 'normal' }}>Money back gurantee on cancellation</Text>
                                 <Text style={{ width: '100%', alignItems: 'center', textAlign: 'left', fontSize: 16, paddingLeft: 4, paddingRight: 2, marginLeft: 10, marginTop: 25, fontWeight: 'bold', fontFamily: 'roboto-bold' }}>Training Description:</Text>
                                 <View style={{ flexDirection: 'column', marginLeft: 15, marginTop: 10 }}>
