@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   TouchableHighlight,
-  Image, ScrollView,
+  Image, ScrollView,StatusBar
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Card } from "react-native-elements";
@@ -96,6 +96,8 @@ const HomePage = ({ navigation }) => {
   //   </View>)
   return (
     <View style={styles.container}>
+                              <StatusBar backgroundColor='#961b37' barStyle="light-content" />
+
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ width: '100%', marginTop: 5, }}>
           <ScrollView style={{ margin: 2, }} showsHorizontalScrollIndicator={false} horizontal>
@@ -125,24 +127,24 @@ const HomePage = ({ navigation }) => {
         </View>
         <ScrollView style={{ margin: 2, }} showsHorizontalScrollIndicator={false} horizontal>
           <View style={{ flexDirection: 'row' }}>
-            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('Createprofilebasicinformation')}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('Search')}>
               <Image source={require('../../icon/it_software.png')} size={10} style={styles.inputIcon} />
               <Text style={styles.loginText}>IT and Software</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('CreatProfileSubjectSkill')}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('Search')}>
               <Image source={require('../../icon/marketing.png')} size={10} style={styles.inputIcon} />
               <Text style={styles.loginText}>Marketing</Text>
 
             </TouchableOpacity >
-            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('CreatProfileAccountInformation')}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('Search')}>
               <Image source={require('../../icon/language.png')} size={10} style={styles.inputIcon} />
               <Text style={styles.loginText}>Language</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('CreatProfileBasicGetCertified')}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('Search')}>
               <Image source={require('../../icon/language.png')} size={10} style={styles.inputIcon} />
               <Text style={styles.loginText}>Photography</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('MyBooking')}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('Search')}>
               <Image source={require('../../icon/language.png')} size={10} style={styles.inputIcon} />
               <Text style={styles.loginText}>Architecture</Text>
             </TouchableOpacity>

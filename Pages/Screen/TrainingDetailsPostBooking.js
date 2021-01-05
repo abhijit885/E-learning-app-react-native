@@ -133,7 +133,7 @@ const TrainingDetailsPostBookingPage = ({ navigation }) => {
                 </TouchableOpacity>
               </View>
               <View style={{ alignSelf: 'center' }}>
-                <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.props.navigation.navigate('TrainingDetails')}>
+                <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} >
                   <Text style={styles.loginText}>Book This Training</Text>
                 </TouchableOpacity>
                 {/* <TouchableOpacity style={[styles.buttonContainer, styles.loginButton2]} >

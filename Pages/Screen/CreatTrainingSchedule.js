@@ -118,9 +118,9 @@ const CreatTrainingSchedule = ({ navigation }) => {
                     </View>
                 </View>
                 <View>
-                    <View style={{ paddingTop: 30, alignItems: 'flex-start', marginRight: 5 }}>
+                    <View style={{ paddingTop: 30, marginRight: 5 }}>
                         <TouchableOpacity style={{
-                            height: 35, justifyContent: 'center', alignItems: 'center', width: '15%',
+                            height: 35, justifyContent: 'center', alignItems: 'center', width: '20%',
                             padding: 1,
                             backgroundColor: '#fffff', borderRadius: 5, marginLeft: 10, borderRadius: 5, borderWidth: 1, borderColor: '#5a287d'
                         }}>
@@ -144,11 +144,11 @@ const CreatTrainingSchedule = ({ navigation }) => {
                         <Text style={{ fontSize: 13, color: 'white', fontWeight: 'bold' }}>Back</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{
-                        height: 35, justifyContent: 'center', alignItems: 'center', width: '15%',
+                        height: 35, justifyContent: 'center', alignItems: 'center', width: '20%',
                         padding: 1,
                         backgroundColor: '#fffff', borderRadius: 5, marginLeft: 30, borderRadius: 5, borderWidth: 1, borderColor: '#020004'
                     }} onPress={() => navigation.navigate('HomeScreen')}>
-                        <Text style={{ fontSize: 13, color: '#020004', fontWeight: 'bold' }}>Discurd</Text>
+                        <Text style={{ fontSize: 13, color: '#6920b7', fontWeight: 'bold' }}>Discurd</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{
                         height: 35, justifyContent: 'center', alignItems: 'center', width: '33%',

@@ -26,7 +26,7 @@ const ScreenCreatProfileSubjectSkill = ({ navigation }) => {
 
                     <View style={{ alignItems: 'center' }}><Text style={{ color: "#5a00b5", }}>________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Subject/Skills</Text><View style={{ backgroundColor: "749182", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#5a00b5", borderRadius: 50, paddingLeft: 4, paddingTop: 3 }}><Icon name="cog" size={25} color="#ffffff" backgroundColor="#ffffff" /></View></View></View>
 
-                    <View style={{ alignItems: 'center' }}><Text style={{ color: "#749182", }}>________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Accounting Information</Text><View style={{ backgroundColor: "749182", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#b5b5b5", borderRadius: 50, paddingLeft: 4.5, paddingTop: 3.5 }}><Icon name="calendar" size={22} color="#ffffff" /></View></View></View>
+                    <View style={{ alignItems: 'center' }}><Text style={{ color: "#749182", }}>________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Accounting Information</Text><View style={{ backgroundColor: "749182", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#b5b5b5", borderRadius: 50, paddingLeft: 4.5, paddingTop: 3.8 }}><Icon name="calendar" size={22} color="#ffffff" /></View></View></View>
 
                     <View style={{ alignItems: 'center' }}><Text style={{ color: "#749182", }}>________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Get Certified</Text><View style={{
                         backgroundColor: "2cd383", paddingBottom: 20,
@@ -68,11 +68,11 @@ const ScreenCreatProfileSubjectSkill = ({ navigation }) => {
                 </View>
                 <View style={{ marginTop: 20, marginBottom: 25 }}>
                     <TouchableOpacity style={{
-                        height: 35, justifyContent: 'center', alignItems: 'center', width: '15%',
+                        height: 35, justifyContent: 'center', alignItems: 'center', width: '20%',
                         padding: 1,
-                        backgroundColor: '#fffff', borderRadius: 5, marginLeft: 10, borderRadius: 5, borderWidth: 1, borderColor: '#5a287d'
+                        backgroundColor: '#fffff', borderRadius: 5, marginLeft: 10, borderRadius: 5, borderWidth: 1, borderColor: '#5e10b2'
                     }}>
-                        <Text style={{ fontSize: 13, color: '#130002', fontWeight: 'bold', padding: 0 }}>Save</Text>
+                        <Text style={{ fontSize: 13, color: '#5e10b2', fontWeight: 'bold', padding: 0 }}>Save</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.lineStyle} />
@@ -103,11 +103,11 @@ const ScreenCreatProfileSubjectSkill = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.lineStyle} />
-                <View style={{ flexDirection: 'row', paddingTop: 10, alignItems: 'flex-start', justifyContent: 'space-around', marginRight: 5 }}>
+                <View style={{ flexDirection: 'row', paddingTop: 10, alignItems: 'flex-start', justifyContent: 'space-around', marginRight: 5 ,marginBottom:10}}>
                     <TouchableOpacity style={{
                         height: 35, justifyContent: 'center', alignItems: 'center', width: '20%',
                         padding: 1,
-                        backgroundColor: '#5a287d', borderRadius: 5,
+                        backgroundColor: '#5e10b2', borderRadius: 5,
                     }} onPress={() => navigation.navigate('ScreenCreateprofilebasicinformation')}>
                         <Text style={{ fontSize: 13, color: 'white', fontWeight: 'bold' }}>Back</Text>
                     </TouchableOpacity>
@@ -119,11 +119,11 @@ const ScreenCreatProfileSubjectSkill = ({ navigation }) => {
                         <Text style={{ fontSize: 13, color: '#130002', fontWeight: 'bold' }}>Discurt</Text>
                     </TouchableOpacity> */}
                     <TouchableOpacity style={{
-                        height: 35, justifyContent: 'center', alignItems: 'center', width: '15%',
+                        height: 35, justifyContent: 'center', alignItems: 'center', width: '20%',
                         padding: 1,
-                        backgroundColor: '#fffff', borderRadius: 5, marginLeft: 30, borderRadius: 5, borderWidth: 1, borderColor: '#020004'
+                        backgroundColor: '#fffff', borderRadius: 5, marginLeft: 30, borderRadius: 5, borderWidth: 1, borderColor: '#5e10b2'
                     }} onPress={() => navigation.navigate('HomeScreen')}>
-                        <Text style={{ fontSize: 13, color: '#020004', fontWeight: 'bold' }}>Discurd</Text>
+                        <Text style={{ fontSize: 13, color: '#5e10b2', fontWeight: 'bold' }}>Discurd</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{
                         height: 35, justifyContent: 'center', alignItems: 'center', width: '33%',
@@ -151,8 +151,8 @@ const styles = StyleSheet.create({
         //     flexDirection: 'row',
         //     alignItems: 'center',
         //     justifyContent: 'center',
-        paddingTop: 10,
-        paddingBottom: 20,
+        paddingTop: 5,
+        // paddingBottom: 20,
     },
     container: {
         flex: 1,
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 5,
-        paddingBottom: 10,
+        //paddingBottom: 10,
         // },
     },
     lineStyle: {

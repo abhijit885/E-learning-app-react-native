@@ -23,8 +23,8 @@ const Screencreateprofilebasicgetcertified  = ({ navigation }) => {
                 </View>
                 <View style={styles.container}>
                     <View style={{ alignItems: 'center' }}><Text style={{ color: "#82b46d", }}>________________</Text><Text style={{ color: "#0e0200", paddingTop: 20, fontSize: 9 }}>Basic Information</Text><View style={{ position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#82b46d", borderRadius: 50, paddingLeft: 6.2, paddingTop: 4 }}><Icon name="lock-closed" size={21} color="#ffffff" /></View></View></View>
-                    <View style={{ alignItems: 'center' }}><Text style={{ color: "#82b46d", }}>________________</Text><Text style={{ color: "#0e0200", paddingTop: 20, fontSize: 9 }}>Subject/Skills</Text><View style={{ backgroundColor: "2cd383", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#82b46d", borderRadius: 50, paddingLeft: 4.2, paddingTop: 4 }}><Icon name="cog" size={25} color="#ffffff" backgroundColor="#2cd383" /></View></View></View>
-                    <View style={{ alignItems: 'center' }}><Text style={{ color: "#82b46d", }}>________________</Text><Text style={{ color: "#0e0200", paddingTop: 20, fontSize: 9 }}>Accounting Information</Text><View style={{ backgroundColor: "2cd383", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#82b46d", borderRadius: 50, paddingLeft: 5, paddingTop: 4 }}><Icon name="calendar" size={21} color="#ffffff" /></View></View></View>
+                    <View style={{ alignItems: 'center' }}><Text style={{ color: "#82b46d", }}>________________</Text><Text style={{ color: "#0e0200", paddingTop: 20, fontSize: 9 }}>Subject/Skills</Text><View style={{ backgroundColor: "2cd383", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#82b46d", borderRadius: 50, paddingLeft: 4.4, paddingTop: 3.6 }}><Icon name="cog" size={25} color="#ffffff" backgroundColor="#2cd383" /></View></View></View>
+                    <View style={{ alignItems: 'center' }}><Text style={{ color: "#82b46d", }}>________________</Text><Text style={{ color: "#0e0200", paddingTop: 20, fontSize: 9 }}>Accounting Information</Text><View style={{ backgroundColor: "2cd383", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#82b46d", borderRadius: 50, paddingLeft: 5.5, paddingTop: 4 }}><Icon name="calendar" size={21} color="#ffffff" /></View></View></View>
                      <View style={{ alignItems: 'center' }}><Text style={{ color: "#5a00b5", }}>________________</Text><Text style={{ color: "#0e0200", paddingTop: 20, fontSize: 9 }}>Get Certified</Text><View style={{
                         backgroundColor: "2cd383", paddingBottom: 20,
                         position: 'absolute'
@@ -94,27 +94,27 @@ const Screencreateprofilebasicgetcertified  = ({ navigation }) => {
                     />
                 </View>
                 <View style={styles.lineStyle} />
-                <View style={{ flexDirection: 'row', paddingTop: 10, alignItems: 'flex-start', justifyContent: 'space-around', marginHorizontal:10 }}>
+                <View style={{ flexDirection: 'row', paddingTop: 10, alignItems: 'flex-start', justifyContent: 'space-around', marginHorizontal:10,marginBottom:10 }}>
                     <TouchableOpacity style={{
                         height: 35, justifyContent: 'center', alignItems: 'center', width: '25%',
                         backgroundColor: '#5a287d', borderRadius: 5,marginLeft:10
                     }} onPress={() => navigation.navigate("ScreenCreatProfileAccountingInformation")}>
-                        <Text style={{ fontSize: 13, color: 'white', fontWeight: 'bold' }}>Add To Back</Text>
+                        <Text style={{ fontSize: 13, color: 'white', fontWeight: 'bold' }}>Back</Text>
                     </TouchableOpacity>
                     <View style={{flexDirection:'row',alignItems:'center',justifyContent:'flex-end'}}>
                     <TouchableOpacity style={{
                         height: 35, justifyContent: 'center', alignItems: 'center', width: '20%',
                         padding: 1,
-                        backgroundColor: '#fffff', borderRadius: 5, borderRadius: 5, borderWidth: 1, borderColor: '#5a287d',marginRight:5
+                        backgroundColor: '#fffff', borderRadius: 5, borderRadius: 5, borderWidth: 1, borderColor: '#6620b9',marginRight:5
                     }}  onPress={() => navigation.navigate("HomeScreen")}>
-                        <Text style={{ fontSize: 13, color: '#130002', fontWeight: 'bold' }} >Skip</Text>
+                        <Text style={{ fontSize: 13, color: '#6620b9', fontWeight: 'bold' }} >Skip</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{
                         height: 35, justifyContent: 'center', alignItems: 'center', width: '22%',
                         padding: 1,
-                        backgroundColor: '#fffff', borderRadius: 5, borderRadius: 5, borderWidth: 1, borderColor: '#5a287d',marginRight:5
+                        backgroundColor: '#fffff', borderRadius: 5, borderRadius: 5, borderWidth: 1, borderColor: '#6620b9',marginRight:5
                     }}  onPress={() => navigation.navigate("HomeScreen")}>
-                        <Text style={{ fontSize: 13, color: '#130002', fontWeight: 'bold' }}>Discurd</Text>
+                        <Text style={{ fontSize: 13, color: '#6620b9', fontWeight: 'bold' }}>Discard</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{
                         height: 35, justifyContent: 'center', alignItems: 'center', width: '39%',
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     outerview:{
         backgroundColor: 'white',
         paddingTop:3,
-        marginBottom:9
+       // marginBottom:9
     }
 });
 

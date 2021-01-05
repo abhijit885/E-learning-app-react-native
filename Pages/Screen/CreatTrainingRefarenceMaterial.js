@@ -17,9 +17,9 @@ const CreatTrainingRefarenceMaterial = ({ navigation }) => {
                 <View style={styles.container}>
                     <View style={{ alignItems: 'center' }}><Text style={{ color: "#62ea61", }}>____________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Basic Information</Text><View style={{ position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#70d85b", borderRadius: 50, paddingLeft: 3.7, paddingTop: .6 }}><Icon name="lock-closed-outline" size={25} color="#ffffff" /></View></View></View>
 
-                    <View style={{ alignItems: 'center' }}><Text style={{ color: "#62ea61", }}>______________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Schedule</Text><View style={{ backgroundColor: "749182", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#62ea61", borderRadius: 50, paddingLeft: 7.8, paddingTop: 4 }}><IconIcon name="user" size={22} color="#ffffff" backgroundColor="#ffffff" /></View></View></View>
+                    <View style={{ alignItems: 'center' }}><Text style={{ color: "#62ea61", }}>______________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Schedule</Text><View style={{ backgroundColor: "749182", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#62ea61", borderRadius: 50, paddingLeft: 7.9, paddingTop: 3.8 }}><IconIcon name="user" size={22} color="#ffffff" backgroundColor="#ffffff" /></View></View></View>
 
-                    <View style={{ alignItems: 'center' }}><Text style={{ color: "#5a00b5", }}>______________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Get Certified</Text><View style={{ backgroundColor: "749182", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#5a00b5", borderRadius: 50, paddingLeft: 8.5, paddingTop: 7 }}><IconIcon name="calendar" size={18} color="#ffffff" /></View></View></View>
+                    <View style={{ alignItems: 'center' }}><Text style={{ color: "#5a00b5", }}>______________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Get Certified</Text><View style={{ backgroundColor: "749182", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#5a00b5", borderRadius: 50, paddingLeft: 7.8, paddingTop: 7 }}><IconIcon name="calendar" size={18} color="#ffffff" /></View></View></View>
                 </View>
                 <View style={{ margin: 10 }}>
                     <Text>Upload Training Image</Text>
@@ -104,9 +104,9 @@ const CreatTrainingRefarenceMaterial = ({ navigation }) => {
                 </View>
 
                 <View>
-                    <View style={{ paddingTop: 30, alignItems: 'flex-start', marginRight: 5 }}>
+                    <View style={{ paddingTop: 30, marginRight: 5 }}>
                         <TouchableOpacity style={{
-                            height: 35, justifyContent: 'center', alignItems: 'center', width: '15%',
+                            height: 35, justifyContent: 'center', alignItems: 'center', width: '20%',
                             padding: 1,
                             backgroundColor: '#fffff', borderRadius: 5, marginLeft: 10, borderRadius: 5, borderWidth: 1, borderColor: '#5a287d'
                         }}>
@@ -130,11 +130,11 @@ const CreatTrainingRefarenceMaterial = ({ navigation }) => {
                         <Text style={{ fontSize: 13, color: 'white', fontWeight: 'bold' }}>Back</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{
-                        height: 35, justifyContent: 'center', alignItems: 'center', width: '15%',
+                        height: 35, justifyContent: 'center', alignItems: 'center', width: '20%',
                         padding: 1,
-                        backgroundColor: '#fffff', borderRadius: 5, marginLeft: 30, borderRadius: 5, borderWidth: 1, borderColor: '#020004'
+                        backgroundColor: '#fffff', borderRadius: 5, marginLeft: 30, borderRadius: 5, borderWidth: 1, borderColor: '#6920b7'
                     }} onPress={() => navigation.navigate('HomeScreen')}>
-                        <Text style={{ fontSize: 13, color: '#020004', fontWeight: 'bold' }}>Discurd</Text>
+                        <Text style={{ fontSize: 13, color: '#6920b7', fontWeight: 'bold' }}>Discurd</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{
                         height: 35, justifyContent: 'center', alignItems: 'center', width: '33%',

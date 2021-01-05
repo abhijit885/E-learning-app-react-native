@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text, Button, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, Button, StyleSheet, TextInput, TouchableOpacity, ScrollView ,StatusBar} from 'react-native';
 import Picker from './Components/Picker'
 import { RadioButton } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const MyTraining  = ({ navigation }) => {
+    const [checked, setChecked] = React.useState('first');
 
         return (
             <View style={styles.container}>
+                <StatusBar backgroundColor='#961b37' barStyle="light-content" />
+
                 <ScrollView>
                 <View style={{ padding: 15, }}>
                         <Text style={{ fontSize: 22, fontWeight: 'bold' }}>My Training</Text>
@@ -38,7 +41,7 @@ const MyTraining  = ({ navigation }) => {
                         <Text>Status</Text>
                     </View>
                     <Picker />
-                    <View style={{ flexDirection: 'column' }}>
+                    {/* <View style={{ flexDirection: 'column' }}>
                         <RadioButton.Group style={{ flexDirection: 'column' }}>
                             <View style={{ flexDirection: 'row', paddingLeft: 50 }}>
                                 <View style={{ flexDirection: 'row' }}>
@@ -51,7 +54,25 @@ const MyTraining  = ({ navigation }) => {
                                 </View>
                             </View>
                         </RadioButton.Group>
+                    </View> */}
+                     <View style={{ flexDirection: 'row', paddingLeft: 50 }}>
+                    <View style={{ flexDirection: 'row' }}>
+                        <RadioButton
+                            value="first"
+                            status={checked === 'first' ? 'checked' : 'unchecked'}
+                            onPress={() => setChecked('first')}
+                        />
+                        <Text style={{ paddingTop: 8 }}>Past Training</Text>
                     </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <RadioButton
+                            value="second"
+                            status={checked === 'second' ? 'checked' : 'unchecked'}
+                            onPress={() => setChecked('second')}
+                        />
+                        <Text style={{ paddingTop: 8 }}>Upcoming Training</Text>
+                    </View>
+                </View>
                     <TouchableOpacity style={{
                         height: 35, justifyContent: 'center', alignItems: 'center', width: '25%',
                         padding: 1,

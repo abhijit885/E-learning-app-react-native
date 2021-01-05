@@ -19,8 +19,12 @@ import {
   Switch
 } from 'react-native-paper';
 import IconIcon from 'react-native-vector-icons/FontAwesome';
+import IconIconIcon from 'react-native-vector-icons/FontAwesome5';
 import { color } from 'react-native-reanimated';
+//const icon1 ='<IconIcon name="check" size={20} color="#ffffff" />'
+
 class ExpandableItemComponent extends React.Component {
+
   //Custom Component for the Expandable List
   constructor() {
     super();
@@ -54,7 +58,9 @@ class ExpandableItemComponent extends React.Component {
   }
   render() {
     const context = this;
-    // const ICON11 = '<IconIcon name="check" size={20} color="#ffffff" />';
+    //const icon1 = {{<IconIcon name="check" size={20} color="#900" />}}
+    const icon2 = <IconIcon name="check" size={20} color="#900" />
+
     return (
       <View>
         {/*Header of the Expandable List Item*/}
@@ -62,7 +68,12 @@ class ExpandableItemComponent extends React.Component {
           activeOpacity={0.8}
           onPress={this.props.onClickFunction}
           style={styles.header}>
-          <Text style={styles.headerText}>{this.props.item.category_name}       +</Text>
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={styles.headerText}>{this.props.item.category_name}</Text>
+            <View style={{ paddingLeft: 20 }}>
+              <IconIcon name="caret-down" size={21} color="#ffffff" />
+            </View>
+          </View>
         </TouchableOpacity>
         <View
           style={{
@@ -76,8 +87,10 @@ class ExpandableItemComponent extends React.Component {
               style={styles.content}
               onPress={() => context.props.navObj.navigate(item.routeName)}>
               <Text style={styles.text}>
+                <View  style={{paddingRight:10}}>
+                  {item.groupIcon}
+                </View>
                 {item.val}
-                {item.icon1}
               </Text>
               <View style={styles.separator} />
 
@@ -165,7 +178,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 16,
     fontWeight: '500',
-    fontStyle: 'italic',
+    //fontStyle: 'italic',
     color: '#ffffff'
   },
   separator: {
@@ -178,7 +191,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     color: '#606070',
-    paddingLeft: 60,
+    paddingLeft: 20,
     paddingTop: 10,
     paddingRight: 10,
     paddingBottom: 10
@@ -202,13 +215,15 @@ const styles = StyleSheet.create({
 //You can also use dynamic data by calling webservice
 const CONTENT = [
   {
+    // { id: 1, val: 'Home', groupIcon: <IconIcon name="home" size={20} color="#db6a84" />, nav: 'MainDrawer', routeName: 'home1' },
     isExpanded: false,
     category_name: 'Teacher Navigation',
-    subcategory: [{ id: 1, val: 'Home', nav: 'MainDrawer', routeName: 'home1' }, { id: 1, val: 'Dashbord', nav: 'MainDrawer', routeName: 'InstructorProfile1' }, { id: 3, val: 'Edit Profile', nav: 'MainDrawer', routeName: 'profile1' }, { id: 3, val: 'Membership', nav: 'MainDrawer', routeName: 'InstructorProfile1' }, { id: 3, val: 'create Training', nav: 'MainDrawer', routeName: 'training1' }, { id: 3, val: 'My Training', nav: 'MainDrawer', routeName: 'mytraining1' }, { id: 3, val: 'My Earning', nav: 'MainDrawer', routeName: 'InstructorProfile12' }],
+    subcategory: [{  nav: 'MainDrawer', routeName: 'home1' }, { id: 1, val: 'Dashbord', groupIcon: <IconIconIcon name="tachometer-alt" size={18} color="#db6a84" />, nav: 'MainDrawer', routeName: 'InstructorProfile1' }, { id: 3, val: 'Edit Profile', groupIcon: <IconIcon name="pencil" size={18} color="#db6a84" />, nav: 'MainDrawer', routeName: 'profile1' }, { id: 3, val: 'Membership', groupIcon: <IconIcon name="users" size={18} color="#db6a84" />, nav: 'MainDrawer', routeName: 'InstructorProfile1' }, { id: 3, val: 'create Training', groupIcon: <IconIcon name="plus-circle" size={18} color="#db6a84" />, nav: 'MainDrawer', routeName: 'training1' }, { id: 3, val: 'My Training', groupIcon: <IconIcon name="book" size={18} color="#db6a84" />, nav: 'MainDrawer', routeName: 'mytraining1' }, { id: 3, val: 'My Earning', groupIcon: <IconIcon name="rupee" size={18} color="#db6a84" />, nav: 'MainDrawer', routeName: 'InstructorProfile12' }],
   },
+
   {
     isExpanded: false,
     category_name: 'Student Navigation',
-    subcategory: [{ id: 4, val: 'Dashbord', nav: 'MainDrawer', routeName: 'home1' }, { id: 5, val: 'Edit Profile', nav: 'MainDrawer', routeName: 'home1' }, { id: 5, val: 'Membership', nav: 'MainDrawer', routeName: 'home1' }, { id: 6, val: 'create Training', nav: 'MainDrawer', routeName: 'home1' }, { id: 7, val: 'My Earning', nav: 'MainDrawer', routeName: 'home1' }],
+    subcategory: [{ nav: 'MainDrawer', routeName: 'home1' }, { id: 1, val: 'Dashbord', groupIcon: <IconIconIcon name="tachometer-alt" size={18} color="#db6a84" />, nav: 'MainDrawer', routeName: 'InstructorProfile1' }, { id: 3, val: 'Edit Profile', groupIcon: <IconIcon name="pencil" size={18} color="#db6a84" />, nav: 'MainDrawer', routeName: 'profile1' }, { id: 3, val: 'Membership', groupIcon: <IconIcon name="users" size={18} color="#db6a84" />, nav: 'MainDrawer', routeName: 'InstructorProfile1' }, { id: 3, val: 'create Training', groupIcon: <IconIcon name="plus-circle" size={18} color="#db6a84" />, nav: 'MainDrawer', routeName: 'training1' }, { id: 3, val: 'My Training', groupIcon: <IconIcon name="book" size={18} color="#db6a84" />, nav: 'MainDrawer', routeName: 'mytraining1' }, { id: 3, val: 'My Earning', groupIcon: <IconIcon name="rupee" size={18} color="#db6a84" />, nav: 'MainDrawer', routeName: 'InstructorProfile12' }],
   },
 ];

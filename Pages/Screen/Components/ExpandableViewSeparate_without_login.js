@@ -75,6 +75,9 @@ class ExpandableItemComponent extends React.Component {
                 style={styles.content}
                 onPress={() => context.props.navObj.navigate(item.routeName)}>
                 <Text style={styles.text}>
+                <View  style={{paddingRight:10}}>
+                  {item.groupIcon}
+                </View>
                    {item.val}
                    {item.icon1}
                 </Text>
@@ -198,6 +201,6 @@ export default class ExpandableViewSeparate_without_login extends React.Componen
     {
       isExpanded: false,
       category_name: 'Home',
-      subcategory: [{ id: 1, val: 'Home',nav: 'MainDrawer', routeName: 'home1' }],
+      subcategory: [{ id: 1, val: 'Home',nav: 'MainDrawer', routeName: 'home1',groupIcon: <IconIcon name="home" size={18} color="#db6a84" />, }],
     }
   ];

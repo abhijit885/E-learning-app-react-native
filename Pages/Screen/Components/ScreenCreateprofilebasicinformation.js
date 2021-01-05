@@ -9,7 +9,7 @@ import {
     Dimensions,
     TouchableOpacity,
     TextInput,
-
+    StatusBar
 } from 'react-native';
 import PhoneInput from "react-native-phone-number-input";
 
@@ -18,9 +18,12 @@ import PhoneInput from "react-native-phone-number-input";
 //import PhoneInput from 'react-phone-number-input'
 import { RadioButton } from 'react-native-paper';
 import IconIcon from 'react-native-vector-icons/FontAwesome';
-
+import IconIconIcon from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Picker from '../Components/Picker'
+
+const icon1 ='<IconIcon name="check" size={20} color="#ffffff" />'
+
 
 const ScreenCreateprofilebasicinformation = ({ navigation }) => {
     const [checked, setChecked] = React.useState('first');
@@ -54,21 +57,24 @@ const ScreenCreateprofilebasicinformation = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+                        <StatusBar backgroundColor='#961b37' barStyle="light-content" />
+
             <ScrollView>
+                {/* <Text>icon1</Text> */}
                 <View style={{ padding: 15, }}>
                     <Text style={{ fontSize: 22, fontWeight: 'bold' }}>Creat Instructor's Profile</Text>
                 </View>
                 <View style={styles.container}>
                     <View style={{ alignItems: 'center' }}><Text style={{ color: "#5a00b5", }}>________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Basic Information</Text><View style={{ position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#5a00b5", borderRadius: 50, paddingLeft: 3.7, paddingTop: .6 }}><Icon name="lock-closed-outline" size={25} color="#ffffff" /></View></View></View>
 
-                    <View style={{ alignItems: 'center' }}><Text style={{ color: "#749182", }}>________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Subject/Skills</Text><View style={{ backgroundColor: "749182", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#b5b5b5", borderRadius: 50, paddingLeft: 4, paddingTop: 3 }}><Icon name="cog" size={25} color="#ffffff" backgroundColor="#ffffff" /></View></View></View>
+                    <View style={{ alignItems: 'center' }}><Text style={{ color: "#749182", }}>________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Subject/Skills</Text><View style={{ backgroundColor: "749182", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#b5b5b5", borderRadius: 50, paddingLeft: 4, paddingTop: 3.7 }}><Icon name="cog" size={25} color="#ffffff" backgroundColor="#ffffff" /></View></View></View>
 
-                    <View style={{ alignItems: 'center' }}><Text style={{ color: "#749182", }}>________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Accounting Information</Text><View style={{ backgroundColor: "749182", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#b5b5b5", borderRadius: 50, paddingLeft: 4.5, paddingTop: 3.5 }}><Icon name="calendar" size={22} color="#ffffff" /></View></View></View>
+                    <View style={{ alignItems: 'center' }}><Text style={{ color: "#749182", }}>________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Accounting Information</Text><View style={{ backgroundColor: "749182", paddingBottom: 20, position: 'absolute' }}><View style={{ height: 33, width: 33, backgroundColor: "#b5b5b5", borderRadius: 50, paddingLeft: 4.9, paddingTop: 3.9 }}><Icon name="calendar" size={22} color="#ffffff" /></View></View></View>
 
                     <View style={{ alignItems: 'center' }}><Text style={{ color: "#749182", }}>________________</Text><Text style={{ color: "#000000", paddingTop: 20, fontSize: 9 }}>Get Certified</Text><View style={{
                         backgroundColor: "2cd383", paddingBottom: 20,
                         position: 'absolute'
-                    }}><View style={{ height: 33, width: 33, backgroundColor: "#b5b5b5", borderRadius: 50, paddingLeft: 6.5, paddingTop: 5.5 }}><IconIcon name="check" size={20} color="#ffffff" /></View></View></View>
+                    }}><View style={{ height: 33, width: 33, backgroundColor: "#b5b5b5", borderRadius: 50, paddingLeft: 6.5, paddingTop: 6.5 }}><IconIcon name="check" size={20} color="#ffffff" /></View></View></View>
                 </View>
                 <View style={{ margin: 10 }}>
                     <Text>Name</Text>
@@ -346,7 +352,7 @@ const ScreenCreateprofilebasicinformation = ({ navigation }) => {
                     // onChangeText={(val) => textFirstName(val)}
                     />
                     <View style={{ position: 'absolute', paddingLeft: 340, paddingTop: 7 }}>
-                        <IconIcon name="youtube" size={21} color="#fc3536" />
+                        <IconIconIcon name="youtube" size={21} color="#fc3536" />
                     </View>
                 </View>
                 <View style={{ margin: 10 }}>
@@ -392,7 +398,7 @@ const ScreenCreateprofilebasicinformation = ({ navigation }) => {
                     // onChangeText={(val) => textFirstName(val)}
                     />
                     <View style={{ position: 'absolute', paddingLeft: 340, paddingTop: 7 }}>
-                        <Icon name="ellipse-outline" size={21} color="#fdc107" />
+                        <IconIconIcon name="blogger-b" size={21} color="#fdc107" />
                     </View>
                 </View>
                 <View style={{ margin: 10 }}>
@@ -432,27 +438,27 @@ const ScreenCreateprofilebasicinformation = ({ navigation }) => {
                     />
                 </View>
                 <View>
-                    <View style={{ paddingTop: 30, alignItems: 'flex-start', marginRight: 5 }}>
+                    <View style={{ paddingTop: 30,  marginRight: 5 }}>
                         <TouchableOpacity style={{
-                            height: 35, justifyContent: 'center', alignItems: 'center', width: '15%',
+                            height: 35, justifyContent: 'center', alignItems: 'center', width: '20%',
                             padding: 1,
-                            backgroundColor: '#fffff', borderRadius: 5, marginLeft: 10, borderRadius: 5, borderWidth: 1, borderColor: '#5a287d'
+                            backgroundColor: '#fffff', borderRadius: 5, marginLeft: 10, borderRadius: 5, borderWidth: 1, borderColor: '#8c56c7'
                         }}>
                             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                                <Icon name="add" size={20} color="#9700e3" />
-                                <Text style={{ fontSize: 13, color: '#9700e3', fontWeight: 'bold' }}>Add</Text>
+                                <Icon name="add" size={20} color="#8c56c7" />
+                                <Text style={{ fontSize: 13, color: '#8c56c7', fontWeight: 'bold' }}>Add</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
                 </View>
                 <View>
-                    <View style={{ flexDirection: 'row', paddingTop: 30, alignItems: 'flex-end', justifyContent: 'flex-end', marginRight: 5 }}>
+                    <View style={{ flexDirection: 'row', paddingTop: 30, alignItems: 'flex-end', justifyContent: 'flex-end', marginRight: 5,marginBottom:10 }}>
                         <TouchableOpacity style={{
-                            height: 35, justifyContent: 'center', alignItems: 'center', width: '15%',
+                            height: 35, justifyContent: 'center', alignItems: 'center', width: '20%',
                             padding: 1,
-                            backgroundColor: '#fffff', borderRadius: 5, marginLeft: 30, borderRadius: 5, borderWidth: 1, borderColor: '#7300ff', marginRight: 15, marginLeft: 30
+                            backgroundColor: '#fffff', borderRadius: 5, marginLeft: 30, borderRadius: 5, borderWidth: 1, borderColor: '#8c56c7', marginRight: 15, marginLeft: 30
                         }} onPress={() => navigation.navigate('HomeScreen')}>
-                            <Text style={{ fontSize: 13, color: '#7300ff', fontWeight: 'bold' }}>Discurd</Text>
+                            <Text style={{ fontSize: 13, color: '#8c56c7', fontWeight: 'bold' }}>Discard</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={{
                             height: 35, justifyContent: 'center', alignItems: 'center', width: '33%', padding: 1, backgroundColor: '#d51c6d', borderRadius: 5
@@ -489,7 +495,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 5,
-        paddingBottom: 10,
+        //paddingBottom: 10,
         // },
     },
     lineStyle: {
@@ -515,7 +521,7 @@ const styles = StyleSheet.create({
         height: 40
     },
     phonestyle: {
-        height: 30,
+        height: 20,
         width: 100
     },
     // textContainerStyle{

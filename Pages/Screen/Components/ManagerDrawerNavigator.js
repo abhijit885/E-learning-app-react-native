@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet, Image, Dimensions } from 'react-native';
+import { Button, View, Text, StyleSheet, Image, Dimensions,StatusBar } from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -71,6 +71,7 @@ function SPLASHSCREEN({ navigation }) {
   }, 2000);
   return (
     <>
+      <StatusBar backgroundColor='#961b37' barStyle="light-content" />
       <View style={styles.SplashScreen_RootView}>
         <Image source={require('../../../icon/splash-background.png')}
           style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
