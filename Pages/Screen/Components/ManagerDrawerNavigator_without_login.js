@@ -28,6 +28,11 @@ import CourseDetails from '../CourseDetails';
 import TrainingDetailsPostBooking from '../TrainingDetailsPostBooking';
 import Login from '../Login';
 import Registration from '../Registration';
+
+import RegistrationVerifecationOTP from '../RegistrationVerifecationOTP';
+import RegistrationVerifecationOTP_Varifecation from '../RegistrationVerifecationOTP_Varifecation';
+import ForgotPassword from '../ForgotPassword';
+
 //         // EDIT PROFILE
 // import ScreenCreateprofilebasicinformation from '../Components/ScreenCreateprofilebasicinformation';
 // import ScreenCreatProfileSubjectSkill from '../Components/ScreenCreatProfileSubjectSkill';
@@ -153,6 +158,11 @@ function HOMEDROWER({ navigation }) {
         <Shop.Screen name="CourseDetails" component={CourseDetails} />
          <Shop.Screen name="Login" component={Login} />
         <Shop.Screen name="Registration" component={Registration} />
+
+        <Shop.Screen name="RegistrationVerifecationOTP" component={RegistrationVerifecationOTP} />
+        <Shop.Screen name="RegistrationVerifecationOTP_Varifecation" component={RegistrationVerifecationOTP_Varifecation} />
+        <Shop.Screen name="ForgotPassword" component={ForgotPassword} />
+
       </Shop.Navigator>
     </>
   );

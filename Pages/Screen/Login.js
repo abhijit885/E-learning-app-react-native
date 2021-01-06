@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   TouchableHighlight,
-  Image, ScrollView,Alert
+  Image, ScrollView, Alert
 } from 'react-native';
 //import { Card } from "react-native-elements";
 import Card from './Components/Card'
@@ -14,101 +14,161 @@ import CardSection from './Components/CardSection'
 import { AuthContext } from '../../Context/context'
 import { DatePicker, CheckBox } from 'native-base';
 import Users from '../../model/users';
+import axios from 'axios';
 
 const Login = ({ navigation }) => {
   const [data, setData] = React.useState({
-    username: '',
+    email: '',
     password: '',
+    found:'',
     check_textInputChange: false,
     secureTextEntry: true,
-    isValidUser: true,
-    isValidPassword: true,
-});
-  const { signIn  } = React.useContext(AuthContext);
+   // isValidUser: true,
+   // isValidPassword: true,
+  });
+  const { signIn } = React.useContext(AuthContext);
   // rememberMe = () => {
   //   this.setState({ checkYes: true })
 
   // };
   const textInputChange = (val) => {
-    if( val.trim().length >= 4 ) {
-        setData({
-            ...data,
-            username: val,
-            check_textInputChange: true,
-            isValidUser: true
-        });
+    if (val.trim().length >= 4) {
+      setData({
+        ...data,
+        email: val,
+        check_textInputChange: true,
+      //  isValidUser: true
+      });
     } else {
-        setData({
-            ...data,
-            username: val,
-            check_textInputChange: false,
-            isValidUser: false
-        });
+      setData({
+        ...data,
+        email: val,
+        check_textInputChange: false,
+      //  isValidUser: false
+      });
     }
-}
-
-const handlePasswordChange = (val) => {
-  if( val.trim().length >= 8 ) {
-      setData({
-          ...data,
-          password: val,
-          isValidPassword: true
-      });
-  } else {
-      setData({
-          ...data,
-          password: val,
-          isValidPassword: false
-      });
   }
-}
-// const updateSecureTextEntry = () => {
-//   setData({
-//       ...data,
-//       secureTextEntry: !data.secureTextEntry
-//   });
-// }
-// const handleValidUser = (val) => {
-//   if( val.trim().length >= 4 ) {
-//       setData({
-//           ...data,
-//           isValidUser: true
-//       });
-//   } else {
-//       setData({
-//           ...data,
-//           isValidUser: false
-//       });
-//   }
-// }
+
+  const handlePasswordChange = (val) => {
+    if (val.trim().length >= 8) {
+      setData({
+        ...data,
+        password: val,
+       // isValidPassword: true
+      });
+    } else {
+      setData({
+        ...data,
+        password: val,
+       // isValidPassword: false
+      });
+    }
+  }
+  // const updateSecureTextEntry = () => {
+  //   setData({
+  //       ...data,
+  //       secureTextEntry: !data.secureTextEntry
+  //   });
+  // }
+  // const handleValidUser = (val) => {
+  //   if( val.trim().length >= 4 ) {
+  //       setData({
+  //           ...data,
+  //           isValidUser: true
+  //       });
+  //   } else {
+  //       setData({
+  //           ...data,
+  //           isValidUser: false
+  //       });
+  //   }
+  // }
   // const updateSecureTextEntry = () => {
   //   setData({
   //     ...data,
   //     secureTextEntry: !data.secureTextEntry,
   //   });
   // };
-  const loginHandle = (userName, password) => {
+  //   const loginHandle = (userName, password) => {
 
-    const foundUser = Users.filter( item => {
-        return userName == item.username && password == item.password;
-    } );
+  //     const foundUser = Users.filter( item => {
+  //         return userName == item.username && password == item.password;
+  //     } );
 
-    if ( data.username.length == 0 || data.password.length == 0 ) {
-        Alert.alert('Wrong Input!', 'Username or password field cannot be empty.', [
-            {text: 'Okay'}
-        ]);
-        return;
-    }
+  //     if ( data.username.length == 0 || data.password.length == 0 ) {
+  //         Alert.alert('Wrong Input!', 'Username or password field cannot be empty.', [
+  //             {text: 'Okay'}
+  //         ]);
+  //         return;
+  //     }
 
-    if ( foundUser.length == 0 ) {
-        Alert.alert('Invalid User!', 'Username or password is incorrect.', [
-            {text: 'Okay'}
-        ]);
-        return;
-    }
-    signIn(foundUser);
-}
+  //     if ( foundUser.length == 0 ) {
+  //         Alert.alert('Invalid User!', 'Username or password is incorrect.', [
+  //             {text: 'Okay'}
+  //         ]);
+  //         return;
+  //     }
+  //     signIn(foundUser);
+  // }
+  const foundUser = () => {
+   // alert(data.email+data.password)
+    axios.defaults.baseURL = 'http://phpwebdevelopmentservices.com/development/appleskool_code/api';
+    axios.defaults.headers.post['Content-Type'] =
+      'application/json;charset=utf-8';
+    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+    axios.defaults.headers.post['Access-Control-Allow-Headers'] = '*';
 
+    axios
+      .post('/login', {
+        "jsonrpc": "2.0",
+        "params": {
+            "email":data.email,
+            "password":data.password,
+            "device_id":"1"
+        }
+    })
+      .then(
+        response => {
+         // console.log(response);
+       //  alert(JSON.stringify(response.data));
+          // setData({
+          //   ...data,
+          //   found: [
+          //     {
+          //       id: 1,
+          //       email: data.email,
+          //       // username: data.username,
+          //       password: data.password,
+
+          //       // userToken: response.data,
+          //     },
+          //   ],
+          // });
+          // global.email = data.username;
+          // global.password = data.password;
+          global.userToken = response.data.result.userdata.id;
+           // alert(JSON.stringify(response.data.result.userdata.id))
+          // axios
+          //   .get(
+          //     'http://3.18.201.246/magento/index.php/rest/default/V1/customers/me',
+          //     {
+          //       headers: {
+          //         Authorization: `Bearer ${response.data}`,
+          //       },
+          //     },
+          //   )
+          //   .then(me => {
+          //     global.Me = me.data.firstname + me.data.lastname;
+          //   });
+          signIn(data.found);
+          //signIn(data.foundUser);
+        },
+        error => {
+          Alert.alert('Enter valid details!! ');
+          console.log(error);
+        },
+      );
+  };
 
   return (
     <View style={styles.container}>
@@ -127,7 +187,7 @@ const handlePasswordChange = (val) => {
               autoCapitalize="none"
               // keyboardType="email-address"
               onChangeText={(val) => textInputChange(val)}
-              // onEndEditing={(e)=>handleValidUser(e.nativeEvent.text)}
+            // onEndEditing={(e)=>handleValidUser(e.nativeEvent.text)}
             />
           </View>
           <View style={styles.inputContainer}>
@@ -138,7 +198,7 @@ const handlePasswordChange = (val) => {
               secureTextEntry={data.secureTextEntry ? true : false}
               // secureTextEntry={true}
               onChangeText={(val) => handlePasswordChange(val)}
-              />
+            />
           </View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 2, width: 320, marginTop: 15 }}>
 
@@ -146,12 +206,12 @@ const handlePasswordChange = (val) => {
               onPress={() => setData({ checked: !data.checked })} />
             <Text style={{ marginRight: 50, marginLeft: -35, fontSize: 13, marginBottom: 2, fontFamily: 'roboto-regular', }}>Remember me</Text>
 
-            <TouchableOpacity style={{}}
+            <TouchableOpacity style={{}} onPress={() => navigation.navigate('ForgotPassword')}
             >
               <Text style={{ fontFamily: 'roboto-regular', fontSize: 13 }}>Forgot password!</Text>
             </TouchableOpacity>
           </View>
-          <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]}  onPress={() => {loginHandle( data.username, data.password )}}
+          <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={() => { foundUser(data.email, data.password) }}
           >
             <Text style={styles.loginText}>SIGN IN</Text>
           </TouchableOpacity>

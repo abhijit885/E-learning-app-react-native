@@ -201,6 +201,8 @@ export default class ExpandableViewSeparate_without_login extends React.Componen
     {
       isExpanded: false,
       category_name: 'Home',
-      subcategory: [{ id: 1, val: 'Home',nav: 'MainDrawer', routeName: 'home1',groupIcon: <IconIcon name="home" size={18} color="#db6a84" />, }],
+      subcategory: [{ id: 1,nav: 'MainDrawer', routeName: 'home1', }],
     }
   ];
+
+  // [{ id: 1, val: 'Home',nav: 'MainDrawer', routeName: 'home1',groupIcon: <IconIcon name="home" size={18} color="#db6a84" />, }]
